@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>ImproViber Stopwatch</title>
+		<link rel="stylesheet" type="text/css" href="style/themes/improviber.min.css" />
+		<link rel="stylesheet" href="style/jquery.mobile.structure-1.0.min.css" /> 		
+		<script type="text/javascript" src="script/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="script/jquery.mobile-1.0.min.js"></script>	
+
+</head>
+<body>
+<div data-role="page" id="main" style="background-image:url('images/wavy-blue-background.jpg');">
+
+	<center>
+		<img src="images/improviberlogoglow.png" alt="logo" style="width:85%;text-align:center;" />
+
+		<form id="clockform">
+		<table>
+			<tr>
+				<td>
+					<table cellpadding=3 cellspacing=0 border=0 align=center>
+						<tr>
+							<td align="center">
+								<input id="clock" value="00:00:00.00" style="text-align:center;font-size:48;font-weight:bold;">
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div data-role="controlgroup" data-type="horizontal">
+									<a href="#" id="btnStartPause" data-role="button" onclick="findTIME();"><img src="images/play.png" style="width:12px;" alt="play" /> / <img src="images/pause.png" style="width:12px;" alt="pause" /></a>
+									<a href="#" data-role="button" onclick="addMEM();">Split</a>
+									<a href="#" data-role="button" onclick="clearALL();">Reset</a>
+								</div>
+								<p style="font-size:smaller;background-color:gainsboro;text-align:center;">Timer continues running on Pause</p>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<a href="stopwatch.html" data-rel="back" data-role="button">Done</a>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div data-role="collapsible">
+									<h3>Splits</h3>
+									<div data-role="fieldcontain">
+										<label for="name">Split 01</label>
+										<input type="text" name="m0" id="m0" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 02</label>
+										<input type="text" name="m1" id="m1" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 03</label>
+										<input type="text" name="m2" id="m2" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 04</label>
+										<input type="text" name="m3" id="m3" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 05</label>
+										<input type="text" name="m4" id="m4" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 06</label>
+										<input type="text" name="m5" id="m5" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 07</label>
+										<input type="text" name="m6" id="m6" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 08</label>
+										<input type="text" name="m7" id="m7" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 09</label>
+										<input type="text" name="m8" id="m8" value=""  />
+									</div>
+									<div data-role="fieldcontain">
+										<label for="name">Split 10</label>
+										<input type="text" name="m9" id="m9" value=""  />
+									</div>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		</form>
+	</center>
+
+</div>
+</body>
+</html>

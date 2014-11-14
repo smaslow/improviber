@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>ImproViber</title>
+		
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<script type="text/javascript" charset="utf-8" src="script/phonegap.js"></script>
+
+		<link rel="stylesheet" type="text/css" href="style/themes/improviber.min.css" />
+		<link rel="stylesheet" href="style/jquery.mobile.structure-1.0.min.css" /> 		
+		<script type="text/javascript" src="script/jquery-1.6.4.min.js"></script>
+		<script type="text/javascript" src="script/jquery.mobile-1.0.min.js"></script>	
+
+		<script type="text/javascript" src="script/stopwatch.js"></script>
+		<script type="text/javascript" src="script/GetData.js"></script>
+
+		<script type="text/javascript">
+		
+		$(document).ready(function(){
+
+		$("#btnIdea").click(function(){
+		  $.ajax({url:"http://maslowinc.com/improviber/api.aspx?f=getitem&cat_characters_fictional=1", success:function(result){
+			globalAnswer = result;
+		  }});
+		});});
+		</script>
+
+	</head>
+	
+	<body>
+		<div id="divResult" style="display:none;"></div>
+
+		<div data-role="page" id="main" style="background-image:url('images/wavy-blue-background.jpg');">
+			<div data-role="content">
+				<center>
+					<img src="images/improviberlogoglow.png" alt="logo" style="width:85%;text-align:center;" />
+				</center>
+				
+				<br />
+				
+					<div data-role="controlgroup" data-type="horizontal" style="text-align:center;">
+						<a href="#" onclick="getData('all');" data-role="button" data-icon="info" data-iconpos="top">Idea</a>
+						<a href="#" onclick="getData('askfor');" data-role="button" data-icon="gear" data-iconpos="top">Ask For</a>
+						<a href="#" onclick="getData('line');" data-role="button" data-icon="star" data-iconpos="top">Line</a>
+					</div>
+							
+				<h3>Categories:</h3>
+
+				<div data-role="collapsible-set">
+					<div data-role="collapsible">
+					   <h3>Characters</h3>
+					   
+						<center>
+							<a href="#" onclick="getData('characters');" data-role="button" data-inline="true" style="background-color:#4CB070;">Get a Character</a>
+						</center>
+
+						<div data-role="fieldcontain">
+							<fieldset data-role="controlgroup">
+							   <legend></legend>
+							   <input type="checkbox" checked="checked" name="cat_characters_famous" id="cat_characters_famous" class="custom" />
+							   <label for="cat_characters_famous">Famous</label>
+							   <input type="checkbox" checked="checked" name="cat_characters_fictional" id="cat_characters_fictional" class="custom" />
+							   <label for="cat_characters_fictional">Fictional</label>
+							   <input type="checkbox" checked="checked" name="cat_characters_generic" id="cat_characters_generic" class="custom" />
+							   <label for="cat_characters_generic">Generic</label>
+							</fieldset>
+						</div>
+
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Character:</label>
+								<input type="text" name="txtCharacters" id="txtCharacters" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('Characters');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>
+															   
+					</div>
+
+					<div data-role="collapsible">
+		
+						<h3>Genres</h3>
+					
+						<center>
+							<a href="#" onclick="getData('genres');" data-role="button" data-inline="true" style="background-color:#4CB070;">Get a Genre</a>
+						</center>
+											
+						<div data-role="fieldcontain">
+							<fieldset data-role="controlgroup">
+							   <legend></legend>
+							   <input type="checkbox" checked="checked" name="cat_genres_movies" id="cat_genres_movies" class="custom" />
+							   <label for="cat_genres_movies">Movies</label>
+							   <input type="checkbox" checked="checked" name="cat_genres_music" id="cat_genres_music" class="custom" />
+							   <label for="cat_genres_music">Music</label>
+							   <input type="checkbox" checked="checked" name="cat_genres_theater" id="cat_genres_theater" class="custom" />
+							   <label for="cat_genres_theater">Theater</label>
+							   <input type="checkbox" checked="checked" name="cat_genres_tv" id="cat_genres_tv" class="custom" />
+							   <label for="cat_genres_tv">TV</label>
+							</fieldset>
+						</div>
+					
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Genre:</label>
+								<input type="text" name="txtGenres" id="txtGenres" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('Genres');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>
+
+					</div>
+
+					<div data-role="collapsible">
+					   <h3>Locations</h3>
+					   
+						<center>
+							<a href="#" onclick="getData('locations');" data-role="button" data-inline="true" style="background-color:#4CB070;">Get a Location</a>
+						</center>				   
+
+						<div data-role="fieldcontain">
+							<fieldset data-role="controlgroup">
+							   <legend></legend>
+							   <input type="checkbox" checked="checked" name="cat_locations_indoor" id="cat_locations_indoor" class="custom" />
+							   <label for="cat_locations_indoor">Indoor</label>
+							   <input type="checkbox" checked="checked" name="cat_locations_outdoor" id="cat_locations_outdoor" class="custom" />
+							   <label for="cat_locations_outdoor">Outdoor</label>
+							   <input type="checkbox" checked="checked" name="cat_locations_vacation" id="cat_locations_vacation" class="custom" />
+							   <label for="cat_locations_vacation">Vacation</label>
+							</fieldset>
+						</div>
+
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Location:</label>
+								<input type="text" name="txtLocations" id="txtLocations" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('Locations');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>										   
+
+					</div>
+
+					<div data-role="collapsible">
+					   <h3>Relationships</h3>
+					   
+						<center>
+							<a href="#" onclick="getData('relationships');" data-role="button" data-inline="true" style="background-color:#4CB070;">Get a Relationship</a>
+						</center>					   
+					   
+						<div data-role="fieldcontain">
+							<fieldset data-role="controlgroup">
+							   <legend></legend>
+							   <input type="checkbox" checked="checked" name="cat_relationships_men" id="cat_relationships_men" class="custom" />
+							   <label for="cat_relationships_men">Men</label>
+							   <input type="checkbox" checked="checked" name="cat_relationships_women" id="cat_relationships_women" class="custom" />
+							   <label for="cat_relationships_women">Women</label>
+							   <input type="checkbox" checked="checked" name="cat_relationships_children" id="cat_relationships_children" class="custom" />
+							   <label for="cat_relationships_children">Children</label>
+							   <input type="checkbox" checked="checked" name="cat_relationships_generic" id="cat_relationships_generic" class="custom" />
+							   <label for="cat_relationships_generic">Generic</label>
+							</fieldset>
+						</div>				   
+					   
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Relationship:</label>
+								<input type="text" name="txtRelationships" id="txtRelationships" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('Relationships');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>	
+
+					</div>
+				
+					<div data-role="collapsible">
+					   <h3>Things</h3>
+					   
+						<center>
+							<a href="#" onclick="getData('things');" data-role="button" data-inline="true" style="background-color:#4CB070;">Get a Thing</a>
+						</center>
+
+						<div data-role="fieldcontain">
+							<fieldset data-role="controlgroup">
+							   <legend></legend>
+							   <input type="checkbox" checked="checked" name="cat_things_animal" id="cat_things_animal" class="custom" />
+							   <label for="cat_things_animal">Animal</label>
+							   <input type="checkbox" checked="checked" name="cat_things_vegetable" id="cat_things_vegetable" class="custom" />
+							   <label for="cat_things_vegetable">Vegetable</label>
+							   <input type="checkbox" checked="checked" name="cat_things_mineral" id="cat_things_mineral" class="custom" />
+							   <label for="cat_things_mineral">Mineral</label>
+							</fieldset>
+						</div>
+
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Thing:</label>
+								<input type="text" name="txtThings" id="txtThings" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('Things');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>
+
+					</div>
+
+					<div data-role="collapsible" style="display:none;">
+					   <h3>Ask Fors and Lines</h3>
+
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Ask For:</label>
+								<input type="text" name="txtAskFor" id="txtAskFor" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('AskFor');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>
+
+						<center>
+							<div data-role="fieldcontain" style="display:none;">
+								<label for="name">Add Line:</label>
+								<input type="text" name="txtLine" id="txtLine" value="" style="width:200px;" />
+								<a href="#" onclick="addItem('Line');" data-role="button" data-inline="true" data-icon="check">Add</a>
+							</div>
+						</center>
+
+
+					</div>
+
+				</div>
+			</div> <!--End of content-->
+
+			<div data-role="footer">
+				<center>
+					<a href="stopwatch.html" data-role="button" data-transition="flip" data-icon="forward">Stopwatch</a>
+				</center>
+			</div> <!--End of Footer-->
+		</div>		<!--End of main page-->
+				
+	</body>
+	
+</html>
